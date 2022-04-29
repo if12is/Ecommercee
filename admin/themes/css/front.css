@@ -1,0 +1,195 @@
+/* Start main roles */
+    body {
+        background-color: floralwhite;
+    }
+    .nice_msg{
+    background-color: #fff;
+    border-left: solid 8px rgb(53 226 203);
+    padding: 16px;
+    margin-top: 24px;
+    font-size: 19px;
+    font-weight: bold;
+    box-shadow: 8px 7px 9px 1px #d4d4d4;
+    border-radius: 0px 5px 5px 0px;
+    }
+/* End main roles */
+
+/*  start login form  */
+
+.login {
+    width: 400px;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+}
+form h2.login_head{
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-family: fantasy;
+    letter-spacing: 2px;
+}
+
+form.login input {
+    margin-bottom:10px;
+}
+
+form.login input.btn-block{
+    width: 100%;
+}
+/*  End login form  */
+/* Start Editing bootstrap styles */
+.dropdown-menu[data-bs-popper] {
+    left: auto !important;
+    margin-top: 12px !important;
+}
+.navbar-brand {
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+    color:aquamarine !important;
+}
+a.navbar-brand{
+    font-size: 26px !important;
+    color: #fff !important;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+a.User_name
+{
+    color: #000 !important;
+    background-color: #dc3545e8;
+    border-radius: 10px;
+}
+a.navbar-brand span{
+
+    color: rgb(255, 0, 0) !important;
+
+}
+
+/* Start style Edit form */
+.head_form_edit{
+    font-size: 32px;
+    color: #42e424;
+    margin: 20px;
+    font-weight: 700;
+}
+form.form-horizontal{
+    margin: 0 auto;
+}
+div.mb-3{
+    position: relative;
+}
+.form-control{
+    position: relative;
+}
+.btn-success {
+    color: #fff;
+    background-color: #42e424 !important;
+    border-color: #42e424 !important;
+}
+.btn-success a {
+    text-decoration: none;
+    color:#fff;
+}
+
+
+/* End style Edit form */
+/* End Editing bootstrap styles */
+/* Start asterisk modified */
+span.imp_star{
+    position: absolute;
+    right:0px;
+    color: red;
+}
+.show-pass{
+    position: absolute;
+    right: 5px;
+    top: 43px;
+}
+.btn_activate{
+    margin-left: 5px;
+}
+/* End asterisk modified */
+
+
+/*Start Dash board Style */
+.total_num{
+    margin-top:50px;
+}
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df!important;
+}
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a!important;
+}
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc!important;
+}
+.border-left-warning {
+    border-left: .25rem solid #f6c23e!important;
+}
+.num_member{
+    text-decoration: none;
+    color: #000;
+}
+.num{
+    font-size:35px;
+    font-weight:bold;
+    font-family: emoji;
+}
+.latest_user li:nth-child(even){
+    background-color: #0dcaf0 !important;
+}
+.latest_user_table .card-body {
+    padding: 0 !important;
+}
+.btn-cyan {
+    background-color: cyan;
+}
+.toggle_info {
+    cursor: pointer;
+    color: rgb(243, 228, 228);
+}
+.toggle_info:hover {
+    color: rgb(204, 193, 193);
+}
+div.head_comm{
+    display: flex;
+    align-items: center;
+}
+/*End Dash board Style */
+
+/* Start Style Categories page */
+div.cat{
+    position:relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+div.cat li.list-group-item:hover {
+    background-color:#f4edff85 !important;
+}
+div.cat:hover div.hidden_btn{
+    right:10px;
+}
+div.cat div.hidden_btn{
+    transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+    position: absolute;
+    top: 10px;
+    right: -262px;
+}
+div.ordering a{
+    text-decoration: none;
+    color: #6c757d;
+}
+div.ordering A.active{
+    color: #0d6efd;
+}
+/* End Style Categories page */
