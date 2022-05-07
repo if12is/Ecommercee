@@ -5,14 +5,13 @@ $pageTitle = 'Cart';
 include 'config.php';
 ?>
 
-<!--PreLoader-->
-<div class="loader">
+<!-- PreLoader-->
+<!-- <div class="loader">
 	<div class="loader-inner">
 		<div class="circle"></div>
 	</div>
-</div>
-<!--PreLoader Ends-->
-
+</div> -->
+<!--PreLoader Ends -->
 
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">

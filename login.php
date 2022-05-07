@@ -1,9 +1,10 @@
 <?php
-session_start();
+ob_start();
 
+session_start();
 $pageTitle = 'Login';
 if (isset($_SESSION['login'])) {
-    header('Location: index.php'); // redirect to dashboard
+    header('Location: home.php'); // redirect to dashboard
 }
 include 'config.php';
 
@@ -50,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($count > 0) {
             $_SESSION['login'] = $_POST['username']; //register session name
             $_SESSION['ID'] = $row['UserID']; // Register session ID 
-            header('Location: index.php'); // redirect to dashboard
-            echo "Welcome to dashboard";
+            header('Location: home.php'); // redirect to dashboard
+
             exit();
         } else {
             // Username doesn't exist, display a generic error message
@@ -64,18 +65,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 ?>
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1><?php echo $pageTitle; ?></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
 
-<form class="login" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" style="display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;">
+<form class="login login_form" role="form" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
     <!--TO SEND DATA TO THE SAME SITE -->
-    <h2 class="login_head"> Login</h2>
     <div class="form-group">
-
         <?php
         if (!empty($login_err)) {
             echo '<div class="alert alert-danger">' . $login_err . '</div>';
         }
         ?>
-
         <label>Username</label>
         <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="">
         <span class="invalid-feedback"><?php echo $username_err; ?></span>
@@ -93,4 +104,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php
 include $tmpl . 'footer.php';
+ob_end_flush();
 ?>

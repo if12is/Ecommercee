@@ -110,7 +110,7 @@ include 'config.php';
 					echo '<div class="header_badge position-absolute">new</div>';
 					echo '<div class="single-product-item">';
 					echo '<div class="product-image">';
-					echo '<a href="single-product.html"><img src="themes/img/products/product-img-1.jpg" alt=""></a>';
+					echo '<a href="single-product.php?itemid=' . $item['Item_ID'] . '"><img src="' . $item['Imge'] . '" alt=""></a>';
 					echo '</div>';
 					echo '<h3>' . $item['Name'] . '</h3>';
 					echo '<p class="product-price"><span>' . $item['Description'] . '</span>' . $item["Price"] . ' </p>';

@@ -89,6 +89,10 @@ if (isset($_SESSION['user'])) {
                     <input id="exampleInputOrder1" type="text" placeholder="price" name="price" class="form-control" required="required" autocomplete="off">
                 </div>
                 <div class="mb-3">
+                    <label for="exampleInputOrder8" class="form-label">Image</label>
+                    <input id="exampleInputOrder8" type="text" placeholder="image path" name="img" class="form-control" required="required" autocomplete="off">
+                </div>
+                <div class="mb-3">
                     <label for="exampleInputOrder2" class="form-label">Country</label>
                     <input id="exampleInputOrder2" type="text" placeholder="Country" name="country" class="form-control" required="required" autocomplete="off">
                 </div>
@@ -144,6 +148,7 @@ if (isset($_SESSION['user'])) {
             $name       = $_POST['name'];
             $desc       = $_POST['description'];
             $price      = $_POST['price'];
+            $img        = $_POST['img'];
             $country    = $_POST['country'];
             $status     = $_POST['status'];
             $member     = $_POST['member'];
@@ -160,6 +165,9 @@ if (isset($_SESSION['user'])) {
             }
             if (empty($price)) {
                 $formErrors[] = "Price Can't be Empty";
+            }
+            if (empty($img)) {
+                $formErrors[] = "Image path Can't be Empty";
             }
             if (empty($country)) {
                 $formErrors[] = "Country Can't be Empty";
@@ -181,12 +189,13 @@ if (isset($_SESSION['user'])) {
             // if there is no errors then update the data form
             if (empty($formErrors)) {
                 $statement = $con->prepare('INSERT INTO
-            items(Name,Description,Price,Country_Made,Status,Add_Date,Cat_ID,Member_ID)
-            VALUES(:znamne,:zdesc,:zprice,:zcountry,:zstat,now(),:zcat,:zmember)');
+            items(Name,Description,Price,Imge,Country_Made,Status,Add_Date,Cat_ID,Member_ID)
+            VALUES(:znamne,:zdesc,:zprice,:zimg,:zcountry,:zstat,now(),:zcat,:zmember)');
                 $statement->execute(array(
                     'znamne'    => $name,
                     'zdesc'     => $desc,
                     'zprice'    => $price,
+                    'zimg'      => $img,
                     'zcountry'  => $country,
                     'zstat'     => $status,
                     'zcat'      => $cat,
@@ -226,6 +235,10 @@ if (isset($_SESSION['user'])) {
                 <div class="mb-3">
                     <label for="exampleInputOrder1" class="form-label">Price</label>
                     <input id="exampleInputOrder1" type="text" placeholder="price" name="price" class="form-control" required="required" value="<?php echo $items['Price']; ?>" autocomplete="off">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputOrder8" class="form-label">Image</label>
+                    <input id="exampleInputOrder8" type="text" placeholder="img" name="img" class="form-control" required="required" value="<?php echo $items['Imge']; ?>" autocomplete="off">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputOrder2" class="form-label">Country</label>
@@ -349,6 +362,7 @@ if (isset($_SESSION['user'])) {
             $name       = $_POST['name'];
             $desc       = $_POST['description'];
             $price      = $_POST['price'];
+            $img        = $_POST['img'];
             $country    = $_POST['country'];
             $status     = $_POST['status'];
             $member     = $_POST['member'];
@@ -365,6 +379,9 @@ if (isset($_SESSION['user'])) {
             }
             if (empty($price)) {
                 $formErrors[] = "Price Can't be Empty";
+            }
+            if (empty($img)) {
+                $formErrors[] = "Image Can't be Empty";
             }
             if (empty($country)) {
                 $formErrors[] = "Country Can't be Empty";
@@ -391,13 +408,14 @@ if (isset($_SESSION['user'])) {
                                                 Name = ?,
                                                 Description = ?,
                                                 Price= ? ,
+                                                Imge= ? ,
                                                 Country_Made = ?,
                                                 Status = ?,
                                                 Member_ID =? ,
                                                 Cat_ID=?
                                             WHERE
                                                 Item_ID  = ?");
-                $statement->execute(array($name, $desc, $price, $country, $status, $member, $cat, $item_id));
+                $statement->execute(array($name, $desc, $price, $img, $country, $status, $member, $cat, $item_id));
                 $massage = "<div class='alert alert-success '>" . $statement->rowCount() . " record Updated" . "</div>";
                 redirectHome($massage, 'back', 3);
             }
